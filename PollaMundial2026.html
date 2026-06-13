@@ -52254,7 +52254,10 @@
 
   (function init() {
     const sel = document.getElementById('selectNombre');
-    planillas.forEach(function(p) {
+    const sorted = planillas.slice().sort(function(a, b) {
+      return a.nombre.localeCompare(b.nombre, 'es');
+    });
+    sorted.forEach(function(p) {
       const opt = document.createElement('option');
       opt.value = p.id_planilla;
       opt.textContent = p.nombre;
